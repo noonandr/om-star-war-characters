@@ -1,5 +1,5 @@
 # Ometria Star War Characters
-* Display a list of Star War characters from public API with the ability to search *
+Display a list of Star War characters from public API with the ability to search
 
 ## Installation
 
