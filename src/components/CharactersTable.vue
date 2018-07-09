@@ -1,7 +1,17 @@
 <template>
   <div class="hello">
-    <h1>Star Wars Characters</h1>
+    <div v-for="(character, index) in characters" :key="character.id">
+
+      <div class="item">
+        <div class="details">
+          <div class="country"><span class="label">Planet name: </span><span class="value">{{ character.name }}</span></div>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+</div>
 </template>
 
 
@@ -10,7 +20,7 @@
 export default {
   name: 'CharactersTable',
   props: {
-    msg: String
+    characters: Array
   }
 }
 
