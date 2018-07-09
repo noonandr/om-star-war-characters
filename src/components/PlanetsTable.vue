@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="character in characters" :key="character.name">
+      <tr v-for="character in planets" :key="character.name">
         <td>
           {{ character.name }}
         </td>
@@ -33,17 +33,15 @@
       </tr>
     </tbody>
   </table>
-
-</div>
 </template>
 
 
 <script>
 
 export default {
-  name: 'CharactersTable',
+  name: 'PlanetsTable',
   props: {
-    characters: Array
+    planets: Array
   }
 }
 

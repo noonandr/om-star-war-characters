@@ -1,15 +1,15 @@
 <template>
-  <div class="om-characters">
-    <h1>Star Wars Characters</h1>
+  <div class="om-planets">
+    <h1>Star Wars Planets</h1>
 
     <input type="text" v-model="search" v-on:input="searchForPlanet" placeholder="Search for planets"/>
 
-    <CharactersTable v-bind:characters="characters"/>
+    <PlanetsTable v-bind:planets="planets"/>
 
     <div class="pagination" v-if="showPagination">
-      <button v-if="previousUrl" v-on:click="get_characters(previousUrl)">Previous</button>
+      <button v-if="previousUrl" v-on:click="get_planets(previousUrl)">Previous</button>
       Page {{pageNumber}} of {{totalPages}}
-      <button v-if="nextUrl" v-on:click="get_characters(nextUrl)">Next</button>
+      <button v-if="nextUrl" v-on:click="get_planets(nextUrl)">Next</button>
     </div>
 
   </div>
@@ -18,16 +18,16 @@
 <script>
   import axios from 'axios'
 
-  import CharactersTable from '@/components/CharactersTable.vue'
+  import PlanetsTable from '@/components/PlanetsTable.vue'
 
   export default {
     name: 'app',
     components: {
-      CharactersTable
+      PlanetsTable
     },
     data () {
       return {
-        characters: [],
+        planets: [],
         previousUrl: false,
         nextUrl: false,
         pageNumber: false,
@@ -37,7 +37,7 @@
       }
     },
     methods: {
-      get_characters: function (url) {
+      get_planets: function (url) {
 
         return axios(url, {
           method: 'GET'
@@ -77,22 +77,22 @@
             this.showPagination = true
           }
 
-          // array of characters from response
-          this.characters = data.results
+          // array of planets from response
+          this.planets = data.results
         })
       },
       searchForPlanet: function () {
         const baseUrl = 'https://swapi.co/api/planets/?search='
         let searchUrl = baseUrl + this.search
 
-        this.get_characters(searchUrl)
+        this.get_planets(searchUrl)
       }
     },
     beforeMount(){
       const planetsUrl = 'https://swapi.co/api/planets'
 
       // run main function on load
-      this.get_characters(planetsUrl)
+      this.get_planets(planetsUrl)
     },
   }
 
