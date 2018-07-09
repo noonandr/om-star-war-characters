@@ -44,10 +44,6 @@
         }).then(response => {
 
           this.showPagination = false
-
-          let previous = false
-          let next = false
-
           const resultsPerPage = 10
 
           // data from the query
@@ -60,20 +56,24 @@
           if (data.previous) {
             this.previous = true;
             this.previousUrl = data.previous
+          } else {
+            this.previous = false
           }
 
           if (data.next) {
             this.next = true;
             this.nextUrl = data.next
+          } else {
+            this.next = false
           }
 
           if (this.next) {
             this.pageNumber = this.nextUrl.match(/page=([^&]*)/)[1] -1;
-          } else if (data.count = 0) {
+          } else if (data.count === 0) {
             this.pageNumber = 1
           }
 
-          if ((this.next && data.count !== 0) || (this.previous && data.count !== 0)) {
+          if ((this.next && data.count) || (this.previous && data.count)) {
             this.showPagination = true
           }
 
