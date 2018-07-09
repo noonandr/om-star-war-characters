@@ -11,24 +11,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="character in planets" :key="character.name">
+      <tr v-for="planet in planets" :key="planet.name">
         <td>
-          {{ character.name }}
+          {{ planet.name }}
         </td>
         <td>
-          {{ character.climate }}
+          {{ planet.climate }}
         </td>
         <td>
-          {{ character.diameter }}
+          {{ planet.diameter }}
         </td>
         <td>
-          {{ character.gravity }}
+          {{ planet.gravity }}
         </td>
         <td>
-          {{ character.orbital_period }}
+          {{ planet.orbital_period }}
         </td>
         <td>
-          {{ character.population }}
+          {{ planet.population }}
         </td>
       </tr>
     </tbody>
